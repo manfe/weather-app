@@ -20,6 +20,7 @@ final class ExternalAPIParseTest extends TestCase
         $client = new Client();
         $city = "Amsterdam";
 
+        // Mocking response body
         $body = file_get_contents(__DIR__ . '/../mocks/responses/temps.json');
 
         // Mocking Response
@@ -29,7 +30,26 @@ final class ExternalAPIParseTest extends TestCase
 
         var_dump($apiResponse);
 
-        $this->assertEquals($body, $apiResponse);        
+        $this->assertEquals(json_decode($body), $apiResponse);        
+    }
+
+    public function testBBCAPIConsumption(): void
+    {
+        $p = new Partner("BBC", 'http://bbc.api.example.com/v2/temperatures', 'xml');
+        $client = new Client();
+        $city = "Groningen";
+
+        // Mocking response body
+        $body = file_get_contents(__DIR__ . '/../mocks/responses/temps.xml');
+
+        // Mocking Response
+        $api = $this->getAPI($p, $client, $city, 200, $body);
+        
+        $apiResponse = $api->getData();
+
+        var_dump($apiResponse);
+
+        $this->assertEquals(json_decode($body), $apiResponse);        
     }
 
 

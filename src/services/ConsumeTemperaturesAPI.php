@@ -32,7 +32,7 @@ class ConsumeTemperaturesAPI
             throw new Exception("Failed to get the $this->city's temperatures from partner: " . $this->partner->getName());
         }
         
-        $data = $response->getBody()->read(1024);
+        $data = $response->getBody()->read(2048);
 
         return $class::parseData($data);
     }
