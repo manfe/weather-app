@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Services;
+
+use GuzzleHttp\Client;
+use App\entities\Partner;
+use GuzzleHttp\Exception\ClientException;
+
+
+class ConsumeTemperaturesAPI
+{
+    private $partner;
+    private $client;
+    private $city;
+
+    public function __construct(Partner $partner, Client $client, $city)
+    {
+        $this->partner = $partner;
+        $this->client = $client;
+        $this->city = $city;
+    }
+
+    function getData()
+    {
+        // avoiding typos
+        $class = "App\\Parsers\\Responses\\" . $this->partner->getName() . "ResponseParser";
+        $formattedURI = $class::getQueryURI($this->partner, $this->city);
+
+        try {
+            $response = $this->client->request('GET', $formattedURI);
+        } catch (ClientException $e) {
+            throw new Exception("Failed to get the $this->city's temperatures from partner: " . $this->partner->getName());
+        }
+        
+        $data = $response->getBody()->read(1024);
+
+        return $class::parseData($data);
+    }
+
+
+}

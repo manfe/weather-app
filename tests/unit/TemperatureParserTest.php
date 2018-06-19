@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use App\Parsers\TemperatureParser;
+use App\Parsers\Temperatures\TemperatureParser;
 
 final class TemperatureParserTest extends TestCase
 {

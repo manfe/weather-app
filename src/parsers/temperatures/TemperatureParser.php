@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Parsers;
+namespace App\Parsers\Temperatures;
 
 class TemperatureParser {
 
@@ -17,7 +17,7 @@ class TemperatureParser {
         // avoiding typos
         $scale = strtolower($fromScale);
 
-        $class = "App\\Parsers\\" . ucwords($fromScale) . "Parser";
+        $class = "App\\Parsers\\Temperatures\\" . ucwords($fromScale) . "Parser";
         
         $parser = new $class(); // TODO: need create a better Exception if the class could not be found.
         
