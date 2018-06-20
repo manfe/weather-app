@@ -18,3 +18,7 @@ var_dump($apiResponse);
 If the partner is a new one, need to add a parser to normalize the response to base json format to be easiser to make calculations with them.
 
 see formatted files on `tests/mocks/responses/formatted_*_temps.json`
+
+
+# Tests
+To run the tests you should run the command: `vendor/bin/phpunit --bootstrap vendor/autoload.php tests/`

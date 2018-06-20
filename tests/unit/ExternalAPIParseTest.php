@@ -9,7 +9,7 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Handler\MockHandler;
-use App\Services\ConsumeTemperaturesAPI;
+use App\Utils\ConsumeTemperaturesAPI;
 
 final class ExternalAPIParseTest extends TestCase
 {

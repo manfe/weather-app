@@ -7,7 +7,7 @@ class Prediction
 {
     private $city;
     private $valid;
-    private $temperature;
+    private $temperatures;
 
     public function setCity($city)
     {
@@ -29,11 +29,11 @@ class Prediction
 
     // here is where the calculation of average temperature is
     // going to happen, also note that should be always stored as Celsius
-    public function setTemperature($temp) {
+    public function setTemperature($hour, $temperature) {
         if ($this->temperature == null) {
             $this->temperature;
         } else { 
-            $this->temperature = ($this->temperature + $temp) / 2;
+            $this->temperature = ($this->temperature + $temperature) / 2;
         }
     }
 

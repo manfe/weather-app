@@ -1,3 +1,7 @@
 index:
     path: /
+    controller: App\Controller\v1\TemperatureController::home
+
+temperature_index:
+    path: /v1/temperatures/{city}/{scale}
     controller: App\Controller\v1\TemperatureController::index
