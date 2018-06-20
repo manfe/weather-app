@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 use App\entities\Partner;
 use GuzzleHttp\Exception\ClientException;
 
-
+// TODO: This class name looks ugly, maybe change it to a better one? idk
 class ConsumeTemperaturesAPI
 {
     private $partner;
@@ -22,7 +22,6 @@ class ConsumeTemperaturesAPI
 
     function getData()
     {
-        // avoiding typos
         $class = "App\\Parsers\\Responses\\" . $this->partner->getName() . "ResponseParser";
         $formattedURI = $class::getQueryURI($this->partner, $this->city);
 

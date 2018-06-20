@@ -10,7 +10,17 @@ class WeatherResponseParser
      */
     public static function parseData($data)
     {
-        return json_decode($data);
+        $obj = json_decode($data);
+
+        $formatted['metadata']['city'] =  $obj->predictions->city;
+        $formatted['metadata']['date'] =  $obj->predictions->date;
+        $formatted['metadata']['scale'] = $obj->predictions->{'-scale'};
+    
+        foreach($obj->predictions->prediction as $prediction) {
+            $formatted['predictions'][$prediction->time] =  $prediction->value;
+        }
+
+        return json_encode($formatted);
     }
 
     // Here is where we can change the query depending the Partner

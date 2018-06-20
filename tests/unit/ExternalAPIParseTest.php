@@ -14,6 +14,7 @@ use App\Services\ConsumeTemperaturesAPI;
 final class ExternalAPIParseTest extends TestCase
 {
 
+    // Partner that uses JSON on their API
     public function testWeatherAPIConsumption(): void
     {
         $p = new Partner("Weather", 'http://weather.api.example.com/v1/temperatures', 'json');
@@ -22,17 +23,18 @@ final class ExternalAPIParseTest extends TestCase
 
         // Mocking response body
         $body = file_get_contents(__DIR__ . '/../mocks/responses/temps.json');
+        $expected = file_get_contents(__DIR__ . '/../mocks/responses/formatted_json_temps.json');
 
         // Mocking Response
         $api = $this->getAPI($p, $client, $city, 200, $body);
         
         $apiResponse = $api->getData();
 
-        var_dump($apiResponse);
-
-        $this->assertEquals(json_decode($body), $apiResponse);        
+        $this->assertEquals($this->removePrettyFormat($expected), 
+                            $this->removePrettyFormat($apiResponse));        
     }
 
+    // Partner that uses XML on their API
     public function testBBCAPIConsumption(): void
     {
         $p = new Partner("BBC", 'http://bbc.api.example.com/v2/temperatures', 'xml');
@@ -41,15 +43,36 @@ final class ExternalAPIParseTest extends TestCase
 
         // Mocking response body
         $body = file_get_contents(__DIR__ . '/../mocks/responses/temps.xml');
+        $expected = file_get_contents(__DIR__ . '/../mocks/responses/formatted_xml_temps.json');
 
         // Mocking Response
         $api = $this->getAPI($p, $client, $city, 200, $body);
         
         $apiResponse = $api->getData();
 
-        var_dump($apiResponse);
+        $this->assertEquals($this->removePrettyFormat($expected), 
+                            $this->removePrettyFormat($apiResponse));
+    }
 
-        $this->assertEquals(json_decode($body), $apiResponse);        
+    // Partner that uses CSV on their API
+    public function testIAmsterdamAPIConsumption(): void
+    {
+        $p = new Partner("IAmsterdam", 'http://iamsterdam.api.example.com/v265/temperatures', 'csv');
+        $client = new Client();
+        $city = "Whatever";
+
+        // Mocking response body
+        $body = file_get_contents(__DIR__ . '/../mocks/responses/temps.csv');
+        
+        $expected = file_get_contents(__DIR__ . '/../mocks/responses/formatted_csv_temps.json');
+
+        // Mocking Response
+        $api = $this->getAPI($p, $client, $city, 200, $body);
+        
+        $apiResponse = $api->getData();
+
+        $this->assertEquals($this->removePrettyFormat($expected), 
+                            $this->removePrettyFormat($apiResponse));        
     }
 
 
@@ -61,5 +84,12 @@ final class ExternalAPIParseTest extends TestCase
  
         return new ConsumeTemperaturesAPI($p, $client, $city);
     }
+
+    private function removePrettyFormat($data) 
+    {
+        return preg_replace( "/\r|\n|\s+/", "", $data);
+    }
+
+    
 
 }
