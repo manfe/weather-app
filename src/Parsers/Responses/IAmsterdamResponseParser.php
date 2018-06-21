@@ -29,8 +29,8 @@ class IAmsterdamResponseParser
     }
 
     // Here is where we can change the query depending the Partner
-    public static function getQueryURI($partner, $city) {
-        return $partner->getBaseURI() . '?c=' . strtolower($city);
+    public static function getQueryURI($partner, $city, $date) {
+        return $partner->getBaseURI() . '?c=' . strtolower($city) . '&d=' . $date;
     }
 
 }

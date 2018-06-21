@@ -5,10 +5,14 @@ namespace Tests\Unit;
 
 use GuzzleHttp\Client;
 use App\entities\Partner;
+use App\Entities\Prediction;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use App\Services\PartnerResource;
+use App\Services\PredictionManager;
 use GuzzleHttp\Handler\MockHandler;
+use App\Factories\PredictionFactory;
 use App\Utils\ConsumeTemperaturesAPI;
 
 final class ExternalAPIParseTest extends TestCase
@@ -60,7 +64,7 @@ final class ExternalAPIParseTest extends TestCase
         $p = new Partner("IAmsterdam", 'http://iamsterdam.api.example.com/v265/temperatures', 'csv');
         $client = new Client();
         $city = "Whatever";
-
+        
         // Mocking response body
         $body = file_get_contents(__DIR__ . '/../mocks/responses/temps.csv');
         
@@ -75,14 +79,14 @@ final class ExternalAPIParseTest extends TestCase
                             $this->removePrettyFormat($apiResponse));        
     }
 
-
     private function getAPI($p, $client, $city, $status, $body = null)
     {
         $mock = new MockHandler([new Response($status, [], $body)]);
         $handler = HandlerStack::create($mock);
         $client = new Client(['handler' => $handler]);
+        $date = '20180620';
  
-        return new ConsumeTemperaturesAPI($p, $client, $city);
+        return new ConsumeTemperaturesAPI($p, $client, $city, $date);
     }
 
     private function removePrettyFormat($data) 

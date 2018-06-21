@@ -3,5 +3,9 @@ index:
     controller: App\Controller\v1\TemperatureController::home
 
 temperature_index:
-    path: /v1/temperatures/{city}/{scale}
+    path: /v1/temperatures/{city}/{date}
+    controller: App\Controller\v1\TemperatureController::index
+
+temperature_index2:
+    path: /v1/temperatures/{city}/{date}/{scale}
     controller: App\Controller\v1\TemperatureController::index

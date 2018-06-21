@@ -24,8 +24,8 @@ class WeatherResponseParser
     }
 
     // Here is where we can change the query depending the Partner
-    public static function getQueryURI($partner, $city) {
-        return $partner->getBaseURI() . '?city=' . strtolower($city);
+    public static function getQueryURI($partner, $city, $date) {
+        return $partner->getBaseURI() . '?city=' . strtolower($city) . '&date=' . $date;
     }
 
 }

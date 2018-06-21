@@ -4,6 +4,9 @@ namespace App\Parsers\Temperatures;
 
 class TemperatureParser {
 
+    const CELSIUS = 'Celsius';
+    const FAHRENHEIT = 'Fahrenheit';
+
     /**
      * Receive the current temperature in celsius and convert to
      * the scale that is passing through param, it is going to return
@@ -12,10 +15,11 @@ class TemperatureParser {
      * @param string $fromScale the scale that the temperature is (eg. Celsius, Fahrenheit)
      * @param string $toScale the scale that the temperature is going to be converted  (eg. Celsius, Fahrenheit)
      */
-    public static function convert($temperature, $fromScale = 'Celsius', $toScale = 'Celsius') : int
+    public static function convert($temperature, $fromScale = TemperatureParser::CELSIUS, $toScale = TemperatureParser::CELSIUS) : int
     {
         // avoiding typos
         $scale = strtolower($fromScale);
+        $toScale = ucwords(strtolower($toScale));
 
         $class = "App\\Parsers\\Temperatures\\" . ucwords($fromScale) . "Parser";
         

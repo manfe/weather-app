@@ -19,6 +19,19 @@ If the partner is a new one, need to add a parser to normalize the response to b
 
 see formatted files on `tests/mocks/responses/formatted_*_temps.json`
 
+# Development Server
+To start symphony dev server just need to run: `php -S localhost:8000 -t public`
+
+## Testing the API
+To check how the API is returning the results you can check the routes: 
+
+[http://localhost:8000/v1/temperatures/amsterdam/20180620/fahrenheit](http://localhost:8000/v1/temperatures/amsterdam/20180620/fahrenheit)
+[http://localhost:8000/v1/temperatures/amsterdam/20180620/celsius](http://localhost:8000/v1/temperatures/amsterdam/20180620/celsius)
+
+Celsius is default, if no scale param is provided:
+
+[http://localhost:8000/v1/temperatures/amsterdam/20180620](http://localhost:8000/v1/temperatures/amsterdam/20180620)
+
 
 # Tests
 To run the tests you should run the command: `vendor/bin/phpunit --bootstrap vendor/autoload.php tests/`

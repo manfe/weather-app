@@ -14,13 +14,13 @@ class Partner
     private $baseUri;
     private $format;
 
-    public function __construct($name, $baseUri, $format)
+    public function __construct($name, $baseUri, $format = 'json')
     {
         $this->name = $name;
         $this->baseUri = $baseUri;
 
         // this is not used for now, but is a way on the future to be easy
-        // to identify what the Partner API respond
+        // to identify what the Partner API respond if not provided by it
         $this->format = $format;
     }
     

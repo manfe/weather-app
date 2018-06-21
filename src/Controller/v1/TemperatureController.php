@@ -2,8 +2,9 @@
 
 namespace App\Controller\v1;
 
-use Symfony\Component\HttpFoundation\Response;
+use App\Services\PredictionManager;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class TemperatureController
 {
@@ -14,15 +15,10 @@ class TemperatureController
         );
     }
 
-    public function index($city, $scale)
+    public function index($city, $date, $scale = 'celsius')
     {
-        return new Response(
-            "<html><body>Lucky number: $city, $scale</body></html>"
-        );
+        $prediction = PredictionManager::getPrediction($city, $date);
+        return new JsonResponse($prediction->toArray($scale));
     }
 
-    private function getCurrentDate() {
-        $date = new DateTime();
-        return $date->format('Ymd');
-    }
 }

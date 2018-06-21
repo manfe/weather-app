@@ -27,9 +27,9 @@ class BBCResponseParser
         return json_encode($formatted);
     }
 
-    // Here is where we can change the query depending the Partner api structure/documentation
-    public static function getQueryURI($partner, $city) {
-        return $partner->getBaseURI() . '?city=' . strtolower($city);
+    // Here is where we can change the query depending the Partner
+    public static function getQueryURI($partner, $city, $date) {
+        return $partner->getBaseURI() . '?city=' . strtolower($city) . '&d=' . $date;
     }
 
 }
