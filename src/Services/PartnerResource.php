@@ -27,8 +27,6 @@ class PartnerResource
         // it returns test, dev or production, depending the .env file.
         $env = getenv('APP_ENV');
 
-        echo $env;
-
         foreach($partners[$env] as $partner) {
             array_push(self::$partners, new Partner($partner['name'], $partner['base_uri'], $partner['format']));
         }
