@@ -20,11 +20,9 @@ class CelsiusParser
         switch ($toScale) {
             case 'Celsius':
                 return $temperature;
-                break;
             
             case 'Fahrenheit':
                 return $temperature * 1.8 + 32;
-                break;
         }
         
     }
