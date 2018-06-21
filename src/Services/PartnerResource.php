@@ -7,22 +7,36 @@ use App\Entities\Partner;
 use App\Entities\Prediction;
 use App\Factories\PredictionFactory;
 use App\Utils\ConsumeTemperaturesAPI;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Config\Loader\FileLoader;
+use Symfony\Component\Yaml\Yaml;
 
 class PartnerResource
 {
     public static $partners = [];
     
-    public static function init()
+    public static function loadPartners()
     {
-        // TODO: This should come from a .env or some config file...
-        array_push(self::$partners, new Partner('BBC', 'https://c2b4b124-a40e-4f39-8578-6f70dd43e6aa.mock.pstmn.io/bbc-temperatures'));// xml
-        array_push(self::$partners, new Partner("Weather", 'https://c2b4b124-a40e-4f39-8578-6f70dd43e6aa.mock.pstmn.io/weather-temperatures')); // json
-        array_push(self::$partners, new Partner("IAmsterdam", 'https://c2b4b124-a40e-4f39-8578-6f70dd43e6aa.mock.pstmn.io/iamsterdam-temperatures')); // csv
+        $configDir = array(__DIR__.'/../../config');
+
+        $fileLocator = new FileLocator($configDir);
+        $yaml = $fileLocator->locate('partners.yaml', null, false);
+
+        $partners = Yaml::parse(file_get_contents($yaml[0]));
+
+        // it returns test, dev or production, depending the .env file.
+        $env = getenv('APP_ENV');
+
+        echo $env;
+
+        foreach($partners[$env] as $partner) {
+            array_push(self::$partners, new Partner($partner['name'], $partner['base_uri'], $partner['format']));
+        }
     }
 
     public static function fetchTemperatures(Prediction $prediction) : Prediction
     {
-        self::init();
+        self::loadPartners();
 
         $client = new Client();
 

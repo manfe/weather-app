@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Tests\Unit;
 
 use GuzzleHttp\Client;
-use App\entities\Partner;
+use App\Entities\Partner;
 use App\Entities\Prediction;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;

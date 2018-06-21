@@ -1,0 +1,26 @@
+'dev':
+  'partner1':
+    name: 'BBC'
+    base_uri: 'https://c2b4b124-a40e-4f39-8578-6f70dd43e6aa.mock.pstmn.io/bbc-temperatures'
+    format: 'xml'
+  'partner2':
+    name: 'Weather'
+    base_uri: 'https://c2b4b124-a40e-4f39-8578-6f70dd43e6aa.mock.pstmn.io/weather-temperatures'
+    format: 'json'
+  'partner3':
+    name: 'IAmsterdam'
+    base_uri: 'https://c2b4b124-a40e-4f39-8578-6f70dd43e6aa.mock.pstmn.io/iamsterdam-temperatures'
+    format: 'csv'
+'test':
+  'partner1':
+    name: 'BBC'
+    base_uri: 'https://c2b4b124-a40e-4f39-8578-6f70dd43e6aa.mock.pstmn.io/bbc-temperatures'
+    format: 'xml'
+  'partner2':
+    name: 'Weather'
+    base_uri: 'https://c2b4b124-a40e-4f39-8578-6f70dd43e6aa.mock.pstmn.io/weather-temperatures'
+    format: 'json'
+  'partner3':
+    name: 'IAmsterdam'
+    base_uri: 'https://c2b4b124-a40e-4f39-8578-6f70dd43e6aa.mock.pstmn.io/iamsterdam-temperatures'
+    format: 'csv'

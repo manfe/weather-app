@@ -10,21 +10,25 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
+
 class ApplicationAvailabilityFunctionalTest extends WebTestCase
 {
     public function testHomePageIsSuccessful()
     {
-        $mock = new MockHandler([
-            new Response(200, ['X-Foo' => 'Bar']),
-            new Response(202, ['Content-Length' => 0]),
-            new RequestException("Error Communicating with Server", new Request('GET', 'test'))
-        ]);
-
-        $handler = HandlerStack::create($mock);
-        $client = new Client(['handler' => $handler]);
+        $client = new Client();
 
         // The first request is intercepted with the first response.
-        $status = $client->request('GET', '/')->getStatusCode();
+        $status = $client->request('GET', getenv('BASE_URL'))->getStatusCode();
+
+        $this->assertEquals($status, 200);
+    }
+
+    public function testTemperatureRequestV1IsSuccessful()
+    {
+        $client = new Client();
+
+        // The first request is intercepted with the first response.
+        $status = $client->request('GET', getenv('BASE_URL') . '/v1/temperatures/amsterdam/20180620')->getStatusCode();
 
         $this->assertEquals($status, 200);
     }
