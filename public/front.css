@@ -139,6 +139,13 @@ body {
     color: #c1c1c1;
 }
 
+.weather-card .bottom .wrapper .forecast h2 {
+  text-align: center;
+}
+
+#prev, #next {
+  z-index: 9999;
+}
 
 .weather-card .bottom .wrapper .forecast li {
   display: block;
@@ -167,7 +174,7 @@ body {
 }
 .weather-card .bottom .wrapper .forecast li .condition .temp .deg {
   display: inline-block;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 600;
   margin-left: 3px;
   vertical-align: top;
