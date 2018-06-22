@@ -47,5 +47,5 @@ To avoid creating a new app just to show the frontend working and consuming the 
 
 After the server is started up access the link (http://localhost:8000/index.html) to see a Vue.JS app consuming the API.
 
-![Usage](https://im.ezgif.com/tmp/ezgif-1-8fcadbbc19.gif)
+![Usage](https://i.imgur.com/jb9bojQ.gif)
 
