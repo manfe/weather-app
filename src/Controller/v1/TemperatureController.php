@@ -21,12 +21,12 @@ class TemperatureController
 
     public function index($city, $date, $scale = 'celsius')
     {
-        if (DateValidator::validateDate($date) && ScaleValidator::validateScale($scale)) {
+        if (DateValidator::validateFormat($date) && DateValidator::validateDate($date) && ScaleValidator::validateScale($scale)) {
             $prediction = PredictionManager::getPrediction($city, $date);
             return new JsonResponse($prediction->toArray($scale));
         } else {
             $scales = TemperatureParser::SUPPORTED_SCALES;
-            $content = array('message' => "Invalid parameters, use the date format as 'yyyymmdd', also the supported scales are: " . implode($scales, ', '));
+            $content = array('message' => "Invalid parameters, the date should be in the present or future and formatted as 'yyyymmdd', also the supported scales are: " . implode($scales, ', '));
             return new JsonResponse($content, 400);
         }
         

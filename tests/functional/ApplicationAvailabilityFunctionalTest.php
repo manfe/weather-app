@@ -32,4 +32,25 @@ class ApplicationAvailabilityFunctionalTest extends WebTestCase
 
         $this->assertEquals($status, 200);
     }
+
+
+    public function testTemperature10DaysRequestV1IsSuccessful()
+    {
+        $client = new Client();
+
+        // The first request is intercepted with the first response.
+        $status = $client->request('GET', getenv('BASE_URL') . '/v1/temperatures/next-10-days/amsterdam')->getStatusCode();
+
+        $this->assertEquals($status, 200);
+    }
+
+    public function testTemperature10DaysFahrenheitRequestV1IsSuccessful()
+    {
+        $client = new Client();
+
+        // The first request is intercepted with the first response.
+        $status = $client->request('GET', getenv('BASE_URL') . '/v1/temperatures/next-10-days/amsterdam/fahrenheit')->getStatusCode();
+
+        $this->assertEquals($status, 200);
+    }
 }
