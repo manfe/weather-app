@@ -32,6 +32,9 @@ Celsius is default, if no scale param is provided:
 
 * [http://localhost:8000/v1/temperatures/amsterdam/20180620](http://localhost:8000/v1/temperatures/amsterdam/20180620)
 
+To get the predictions for the next 10 days, need to use the URLS:
+* [http://localhost:8000/v1/temperatures/next-10-days/amsterdam/celsius](http://localhost:8000/v1/temperatures/next-10-days/amsterdam/celsius)
+* [http://localhost:8000/v1/temperatures/next-10-days/amsterdam/fahrenheit](http://localhost:8000/v1/temperatures/next-10-days/amsterdam/fahrenheit)
 
 # Running Tests
 Before run the test suite you need startup the local server and configure the BASE_URL variable into `phpunit.xml`
