@@ -38,3 +38,11 @@ Before run the test suite you need startup the local server and configure the BA
 This provide us the ability to run a dev and test server separately if necessary.
 
 To run the tests you should execute the command: `php bin/phpunit`
+
+# Frontend
+To avoid creating a new app just to show the frontend working and consuming the API, I added the index.html file to the public folder, there is possible to have a idea how it's working. (the UX is not 100%, I had a little problem with the sliders, so check the gif for usage :D). Also I didn't had more time to add a select for cities, but it was going to update the URL request.
+
+After the server is started up access the link (http://localhost:8000/index.html) to see a Vue.JS app consuming the API.
+
+![Usage](https://im.ezgif.com/tmp/ezgif-1-8fcadbbc19.gif)
+
