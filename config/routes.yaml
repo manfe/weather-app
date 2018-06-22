@@ -2,6 +2,14 @@ index:
     path: /
     controller: App\Controller\v1\TemperatureController::home
 
+ten_days_temperatures_1:
+    path: /v1/temperatures/next-10-days/{city}
+    controller: App\Controller\v1\TemperatureController::nextTenDays
+
+ten_days_temperatures_2:
+    path: /v1/temperatures/next-10-days/{city}/{scale}
+    controller: App\Controller\v1\TemperatureController::index
+
 temperature_index:
     path: /v1/temperatures/{city}/{date}
     controller: App\Controller\v1\TemperatureController::index
@@ -9,3 +17,5 @@ temperature_index:
 temperature_index2:
     path: /v1/temperatures/{city}/{date}/{scale}
     controller: App\Controller\v1\TemperatureController::index
+
+

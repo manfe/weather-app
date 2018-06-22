@@ -6,6 +6,7 @@ class TemperatureParser {
 
     const CELSIUS = 'Celsius';
     const FAHRENHEIT = 'Fahrenheit';
+    const SUPPORTED_SCALES = [TemperatureParser::CELSIUS, TemperatureParser::FAHRENHEIT];
 
     /**
      * Receive the current temperature in celsius and convert to

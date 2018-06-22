@@ -18,9 +18,6 @@ class Partner
     {
         $this->name = $name;
         $this->baseUri = $baseUri;
-
-        // this is not used for now, but is a way on the future to be easy
-        // to identify what the Partner API respond if not provided by it
         $this->format = $format;
     }
     

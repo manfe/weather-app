@@ -1,0 +1,203 @@
+<html>
+<head>
+
+    <!-- production version, optimized for size and speed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/front.css" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="weather-card one">
+            <div class="top">
+                <div class="wrapper">
+                    <div class="mynav">
+                        <span class="lnr lnr-cog"></span>
+                        <a href="#" class="active btn btn-default btn-sm">Celsius</a>
+                        <a href="#" class="btn btn-default btn-sm">Fahrenheit</a>
+                    </div>
+                    <h3 class="location">{{ message }}, Holland</h3>
+                    <p class="temp">
+                        <span class="temp-value">20</span>
+                        <span class="deg">0</span>
+                        <a href="javascript:;"><span class="temp-type">C</span></a>                        
+                    </p>
+                    <a href="javascript:;" class="go-left-link hidden"><span class="lnr lnr-chevron-left go-left"></span></a>
+                    <a href="javascript:;" class="go-right-link"><span class="lnr lnr-chevron-right go-right"></span></a>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="wrapper">
+                    <div class="col-md-6">
+                        <ul class="forecast">
+                            <li class="active">
+                                <span class="date">Today</span>
+                                <span class="condition">
+                                    <span class="temp">23<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Today</span>
+                                <span class="condition">
+                                    <span class="temp">23<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="forecast">
+                            <li class="active">
+                                <span class="date">Today</span>
+                                <span class="condition">
+                                    <span class="temp">23<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Today</span>
+                                <span class="condition">
+                                    <span class="temp">23<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        }
+    })
+</script>
+</body>
+</html>
