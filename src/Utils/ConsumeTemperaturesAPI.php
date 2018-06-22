@@ -25,7 +25,7 @@ class ConsumeTemperaturesAPI
 
     function getData()
     {
-        if (getenv('APP_ENV')){
+        if (in_array(getenv('APP_ENV'), ['test', 'dev'])) {
             $class = "App\\Parsers\\Responses\\" . $this->partner->getName() . "ResponseParser";
             $path = __DIR__ . "/../../tests/mocks/responses/" . strtolower($this->partner->getName()) . '.' . $this->partner->getFormat();
             $data = file_get_contents($path);
