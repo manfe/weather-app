@@ -71,7 +71,7 @@
             },
             mounted () {
                 axios
-                .get('http://localhost:8000/v1/temperatures/next-10-days/amsterdam/fahrenheit')
+                .get('/v1/temperatures/next-10-days/amsterdam/fahrenheit')
                 .then(response => {
                     this.city = response['data']['metadata']['city'];
                     this.scale = response['data']['metadata']['scale'];
@@ -92,7 +92,7 @@
                 },
                 scale: function(s) {
                     axios
-                    .get('http://localhost:8000/v1/temperatures/next-10-days/amsterdam/' + s)
+                    .get('/v1/temperatures/next-10-days/amsterdam/' + s)
                     .then(response => {
                         this.city = response['data']['metadata']['city'];
                         this.scale = response['data']['metadata']['scale'];
